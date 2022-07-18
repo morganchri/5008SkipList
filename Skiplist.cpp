@@ -45,6 +45,28 @@ inline void Skiplist::skipInsert(int k) {
   }
 }
 
-inline void Skiplist::skipDelete(int k) {
+inline void lDelete(node_t* list, int k) {
+  node_t* temp = list;
+  node_t* prev = nullptr;
+  if (temp != nullptr && temp->data == k) {
+    temp = temp->next;
+    delete(temp);
+    return;
+  } else {
+    while (temp != nullptr && temp->data != k) {
+      prev = temp;
+      temp = temp->next;
+    }
+    if (temp == nullptr) {
+      return;
+    }
+    prev->next = temp->next;
+    delete(temp);
+  }
+}
 
+inline void Skiplist::skipDelete(int k) {
+  while(this->skipSearch(k) != nullptr) {
+    lDelete(this->head[this->height], k);
+  }
 }

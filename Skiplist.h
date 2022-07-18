@@ -31,7 +31,8 @@ class Skiplist {
   node_t** head;
   node_t** end;
  public:
-  Skiplist(int height) {
+  explicit Skiplist(int height) {
+    this->height = height;
     this->head = new node_t*[height];
     this->end = new node_t*[height];
     for (int i = 0; i < height; ++i) {
@@ -43,9 +44,10 @@ class Skiplist {
   node_t* skipSearch(int k);
   void skipInsert(int k);
   void skipDelete(int k);
-  int coinFlip();
+  static int coinFlip();
 };
 
 void lInsert(node_t* list, int k);
+void lDelete(node_t* list, int k);
 
 #endif//INC_5008SKIPLIST__SKIPLIST_H_
