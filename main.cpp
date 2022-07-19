@@ -9,8 +9,8 @@ int main() {
   sl->skipSearch(10);
   sl->skipDelete(10);
   sl->skipSearch(10);
-  sl->skipSearch(64);
-  sl->skipDelete(64);
-  sl->skipSearch(64);
+  sl->skipSearch(98);
+  sl->skipDelete(98);
+  sl->skipSearch(98);
   return 0;
 }
